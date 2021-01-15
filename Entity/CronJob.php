@@ -4,6 +4,7 @@ namespace Cron\CronBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
  * CronJob
@@ -13,6 +14,8 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class CronJob
 {
+    use TimestampableEntity;
+
     /**
      * @var integer
      *
@@ -62,6 +65,22 @@ class CronJob
      * @var ArrayCollection
      */
     protected $reports;
+
+    /**
+     * Status of the cron job
+     *
+     * @var string
+     *
+     * @ORM\Column(type="cron_status")
+     */
+    private $status;
+
+    /**
+     * Timestamp when the job was last ticked
+     *
+     * @ORM\Column(type="datetime")
+     */
+    private $heartbeat;
 
     public function __construct()
     {
@@ -191,6 +210,42 @@ class CronJob
     public function getReports()
     {
         return $this->reports;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStatus(): string
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param string $status
+     * @return CronJob
+     */
+    public function setStatus(string $status): CronJob
+    {
+        $this->status = $status;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getHeartbeat()
+    {
+        return $this->heartbeat;
+    }
+
+    /**
+     * @param mixed $heartbeat
+     * @return CronJob
+     */
+    public function setHeartbeat($heartbeat)
+    {
+        $this->heartbeat = $heartbeat;
+        return $this;
     }
 
     public function __toString()

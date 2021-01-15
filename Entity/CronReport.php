@@ -152,4 +152,9 @@ class CronReport
     {
         return $this->runTime;
     }
+
+    public function __toString()
+    {
+        return sprintf("%s-%d", $this->getJob()->getName(), $this->getId());
+    }
 }

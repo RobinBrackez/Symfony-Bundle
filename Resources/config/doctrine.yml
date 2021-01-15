@@ -1,0 +1,4 @@
+doctrine:
+    dbal:
+        types:
+            cron_status:   App\DBal\Type\CronStatus
