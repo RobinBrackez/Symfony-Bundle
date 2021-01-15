@@ -1,6 +1,10 @@
 Cron Bundle
 ===========
 
+Forked from https://github.com/Cron/Symfony-Bundle
+
+Added extra fields and cron crash/restart reports
+
  [![Packagist](https://img.shields.io/packagist/v/cron/cron-bundle.svg?style=flat-square)](https://packagist.org/packages/cron/cron-bundle)
  [![Build Status](https://img.shields.io/travis/Cron/Symfony-Bundle.svg?style=flat-square)](https://travis-ci.org/Cron/Symfony-Bundle)
  [![Packagist](https://img.shields.io/packagist/dt/Cron/Cron-Bundle.svg?style=flat-square)](https://packagist.org/packages/cron/cron-bundle)
