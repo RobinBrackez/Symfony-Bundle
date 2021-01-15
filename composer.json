@@ -1,5 +1,5 @@
 {
-    "name": "robin-brackez/cron-bundle",
+    "name": "cron/cron-bundle",
     "type": "symfony-bundle",
     "description": "Symfony cron",
     "license": "MIT",
