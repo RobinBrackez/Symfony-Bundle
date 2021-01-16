@@ -2,7 +2,7 @@
 /**
  * Courtesy of Buromac.be/Tadaaz.be
  */
-namespace Cron\CronBundle\Service\HeartBeatService;
+namespace Cron\CronBundle\Service;
 
 use App\DBal\Type\CronStatus;
 use Cron\CronBundle\Entity\CronJob;

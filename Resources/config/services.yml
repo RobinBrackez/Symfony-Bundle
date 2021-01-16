@@ -27,3 +27,7 @@ services:
     cron.validator:
         class: "%cron.validator.class%"
         public: true
+
+    Cron\CronBundle\Service\:
+        resource: '../../Service'
+        autowire: true
