@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DBal\Type;
+namespace Cron\CronBundle\DBal\Type;
 
 use Doctrine\DBAL\Types\Type;
 use Doctrine\DBAL\Platforms\AbstractPlatform;

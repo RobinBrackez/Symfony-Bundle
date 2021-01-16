@@ -1,4 +1,4 @@
 doctrine:
     dbal:
         types:
-            cron_status:   App\DBal\Type\CronStatus
+            cron_status: Cron\CronBundle\DBal\Type\CronStatus

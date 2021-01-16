@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DBal\Type;
+namespace Cron\CronBundle\DBal\Type;
 
 class CronStatus extends AbstractEnumType
 {
