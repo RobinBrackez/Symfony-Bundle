@@ -2,14 +2,14 @@
 /**
  * Courtesy of Buromac.be/Tadaaz.be
  */
-namespace App\Service;
+namespace Cron\CronBundle\Service\HeartBeatService;
 
 use App\DBal\Type\CronStatus;
+use Cron\CronBundle\Entity\CronJob;
 use DateTime;
 use DateTimeInterface;
 use DateTimeZone;
 use Doctrine\ORM\UnitOfWork;
-use App\Entity\CronJob;
 use Doctrine\ORM\EntityManagerInterface;
 
 /**
@@ -77,7 +77,7 @@ class HeartBeatService
     /**
      * Signal that the import has stopped
      */
-    public function setImportRunningStopped()
+    public function setJobStopped()
     {
         $this->setStatus(CronStatus::IDLE);
     }
@@ -85,7 +85,7 @@ class HeartBeatService
     /**
      * Signal that the import has crashed
      */
-    public function setImportRunningCrashed()
+    public function setJobCrashed()
     {
         $this->setStatus(CronStatus::CRASHED);
     }
@@ -142,7 +142,7 @@ class HeartBeatService
     }
 
     /**
-     * Lazy load ImportCommandRunning object.
+     * Lazy load the Cronjob object.
      *  - Lookup if it already exists for this $name
      *  - Create if it doesn't exist.
      *
@@ -156,7 +156,7 @@ class HeartBeatService
         }
 
         if ($this->cronJob instanceof CronJob) {
-            // If $em->clear() happens in the import script, the importRunningObject becomes detached.
+            // If $em->clear() happens in the import script, the CronJob becomes detached.
             // Doctrine would perform an insert instead of an update. To avoid that, we need the fetch the entity again from the manager.
             if ($this->isImportObjectDetached()) {
                 $this->cronJob = null;
@@ -222,7 +222,7 @@ class HeartBeatService
     }
 
     /**
-     * Returns true if the importRunningObject is detached from the entity manager.
+     * Returns true if the CronJob is detached from the entity manager.
      *
      * @return bool
      */
